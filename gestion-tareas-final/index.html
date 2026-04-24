@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Tareas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Gestión de tareas</h1>
+
+  <section>
+    <h2>Registro de nueva tarea</h2>
+
+    <input type="text" id="id" placeholder="ID">
+    <input type="text" id="titulo" placeholder="Título">
+    <input type="text" id="descripcion" placeholder="Descripción">
+    <input type="date" id="fechaInicio">
+    <input type="text" id="cliente" placeholder="Nombre del cliente">
+    <input type="text" id="proyecto" placeholder="ID del proyecto">
+    <textarea id="comentarios" placeholder="Comentarios"></textarea>
+
+    <button onclick="registrarTarea()">Registrar tarea</button>
+  </section>
+
+  <section>
+    <h2>Consulta de datos</h2>
+
+    <label for="filtroEstatus">Filtrar por estatus:</label>
+    <select id="filtroEstatus" onchange="filtrarTareas()">
+      <option>Todos</option>
+      <option>Por hacer</option>
+      <option>En progreso</option>
+      <option>Rechazado</option>
+      <option>Cancelado</option>
+      <option>Cerrado</option>
+      <option>En pruebas de calidad</option>
+      <option>En validación por el usuario</option>
+    </select>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Descripción</th>
+          <th>Fecha inicio</th>
+          <th>Cliente</th>
+          <th>Proyecto</th>
+          <th>Comentarios</th>
+          <th>Estatus</th>
+        </tr>
+      </thead>
+      <tbody id="tablaTareas"></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Sección de cambios</h2>
+
+    <input type="text" id="editId" disabled>
+    <input type="text" id="editTitulo" disabled>
+    <input type="text" id="editDescripcion" disabled>
+    <input type="date" id="editFechaInicio" disabled>
+    <input type="text" id="editCliente" disabled>
+    <input type="text" id="editProyecto" disabled>
+
+    <label for="editEstatus">Estatus:</label>
+    <select id="editEstatus">
+      <option>En progreso</option>
+      <option>Rechazado</option>
+      <option>Cancelado</option>
+      <option>Cerrado</option>
+      <option>En pruebas de calidad</option>
+      <option>En validación por el usuario</option>
+      <option>En proceso de liberación</option>
+    </select>
+
+    <textarea id="editComentarios" disabled></textarea>
+    <textarea id="nuevoComentario" placeholder="Nuevo comentario"></textarea>
+
+    <button onclick="actualizarTarea()">Actualizar tarea</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
